@@ -1,0 +1,18 @@
+  <ion-item-sliding *ngFor="let item of wishesService.list |filter:finished" class="animated fadeInDown" >
+      <ion-list color="dark" #lista>
+          <ion-item-options side="start">
+              <ion-item-option (click)="editItem(item)" color="primary" slot="icon-only">
+                  <ion-icon name="create"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          <ion-item  detail color="dark" (click)="selectedList(item)">
+            <ion-label>{{ item.tittle}}</ion-label>
+            <ion-note color="tertiary" slot="end">{{ item.items.length}} Items</ion-note>
+          </ion-item>
+        </ion-list>
+      <ion-item-options side="end">
+          <ion-item-option (click)="deleteItem(item)" color="danger" slot="icon-only">
+              <ion-icon name="close"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
